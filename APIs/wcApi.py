@@ -1,11 +1,14 @@
 from woocommerce import API
 
+
 wcApi=API(
 url="https://hierroscasanova.com.ar/",
-consumer_key="ck_f6c766888884ef3b27ec4bb57b520814650167b3",
-consumer_secret="cs_3cd6e59e6e5e3dc05c30608b68d4a475c2493e68",
+consumer_key="ck_fa4fb9e482416eefa1a52a79e30ffe4db7bad78d", 
+consumer_secret="cs_7ad02575912819b22fe7fac571eb261a4adb3c99", 
 version="wc/v3"
 )
+
+#Opcion B con clave de actualizador ck_f6c766888884ef3b27ec4bb57b520814650167b3 cs_3cd6e59e6e5e3dc05c30608b68d4a475c2493e68
 
 productos=wcApi.get("products", params={"per_page": 100}).json() #SIN .json() devuelve <Response [200]> ////// CON .json() DEVUELVE LISTA [] DE DICCIONARIOS {}
 #print(productos) # LISTA [] DE DICCIONARIOS {}
