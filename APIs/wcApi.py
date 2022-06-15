@@ -1,6 +1,12 @@
 from woocommerce import API
 import json
 
+"""
+Las credenciales para la API de WooCommerce se gestionan en: WooCommerce --> Avanzado --> API REST
+
+#keyMartin: ck_f6c766888884ef3b27ec4bb57b520814650167b3
+#secretMartin: cs_3cd6e59e6e5e3dc05c30608b68d4a475c2493e68
+"""
 
 wcApi=API(
 url="https://hierroscasanova.com.ar/",
@@ -14,6 +20,7 @@ proId=[3774,6428,6429,6430,6431,6432,6433,6435,6436,6437,6438,6439,6440,6441,644
 prod_list=[]
 
 #productos=wcApi.get("products", params={"per_page": 1}).json() #Hasta 30 #SIN .json() devuelve <Response [200]> ////// CON .json() DEVUELVE LISTA [] DE DICCIONARIOS {}
+
 for p in proId:
 	producto=wcApi.get("products/"+str(p), params={"per_page": 1}).json()
 	prod=json.dumps(producto,indent=1) # Puedo usar "products/25980" por ejemplo para buscar un unico producto por ID
@@ -22,12 +29,6 @@ for p in proId:
 	prod_list.append([producto["id"],producto["name"],producto["variations"]])
 	
 print(prod_list) # LISTA [] DE DICCIONARIOS {}
-
-
-
-
-
-
 
 # # print()
 # # print(productos[9]) # DICCIONARIO {}
@@ -58,3 +59,42 @@ print(prod_list) # LISTA [] DE DICCIONARIOS {}
 # # # 	print(i,variaciones[i]["id"],variaciones[i]["attributes"][2]["option"],variaciones[i]["sku"],variaciones[i]["price"])
 # # # for i in variaciones: 
 # # # 	print(i,variaciones[i]["id"],variaciones[i]["attributes"][2]["option"],variaciones[i]["sku"],variaciones[i]["price"])
+
+######################################################################################################
+#VIEJO: 
+######################################################################################################
+
+# productos=wcApi.get("products", params={"per_page": 100}).json() #SIN .json() devuelve <Response [200]> ////// CON .json() DEVUELVE LISTA [] DE DICCIONARIOS {}
+# #print(productos) # LISTA [] DE DICCIONARIOS {}
+# # print()
+# # print(productos[9]) # DICCIONARIO {}
+# # print()
+# #variaciones=
+# proId=[]
+# proName=[]
+# proVar=[]
+
+# for i in range(len(productos)-40):
+# 	proId.append(productos[i]["id"])
+# 	proName.append(productos[i]["name"])
+# 	proVar.append(productos[i]["variations"])
+# 	#print(i,proId[i],proName[i],proVar[i]) # MEDIANTE LA CLAVE OBTENGO VALORES
+
+# cont=0
+# for prod in range(len(proId)):
+# 	variaciones=wcApi.get(str("products/"+str(proId[prod])+"/variations"), params={"per_page": 100}).json() #DEVUELVE LISTA [] DE DICCIONARIOS {}
+# 	for var in range(len(variaciones)):
+# 		print(cont,proId[prod],proName[prod],variaciones[var]["id"],variaciones[var]["sku"],format(float(variaciones[var]["regular_price"]),'.2f'),variaciones[var]["status"],variaciones[var]["tax_status"],variaciones[var]["date_modified"])
+# 		cont+=1
+
+
+# for i in range(len(variaciones)):
+# 	print(i,variaciones[i]["id"],variaciones[i]["attributes"][2]["option"],variaciones[i]["sku"],variaciones[i]["price"])
+# for i in variaciones: 
+# 	print(i,variaciones[i]["id"],variaciones[i]["attributes"][2]["option"],variaciones[i]["sku"],variaciones[i]["price"])
+######################################################################################################
+#VIEJO: 
+######################################################################################################
+
+
+
