@@ -82,6 +82,7 @@ def main():
 	OR G.COD_ARTICU LIKE '00020%'
 	OR G.COD_ARTICU LIKE '00030%'
 	OR G.COD_ARTICU LIKE '00050%'
+	OR G.COD_ARTICU LIKE '00060%'
 	OR G.COD_ARTICU LIKE '00070%'
 	OR G.COD_ARTICU LIKE '00120%'
 	OR G.COD_ARTICU LIKE '00130%'
@@ -387,5 +388,6 @@ if __name__ == '__main__':
 else: 
 	plog("Falló ejecución: __name__!='__main__'")
 	plog("ALARMA DE CORREO GP")
+
 
 
