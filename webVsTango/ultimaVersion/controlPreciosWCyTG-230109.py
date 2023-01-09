@@ -69,10 +69,10 @@ def main():
 
 ################################################################################################################################
 	#BUSCA PRODUCTOS TANGO
-	server='HCSANMARTIN.DDNS.NET,5001'  #localhost,1183  #puerto 1183
-	database='HCSANMARTIN' 
-	username='testuser' 
-	password='usertest' 
+	server='IRONSERVER\\HIERROS1' #'ironserver,1183' #'HCSANMARTIN.DDNS.NET,5001'  #localhost,1183  #puerto 1183 #ironserver.hcllavallol2001.dbo.gva17
+	database='hcllavallol2001' #'HCSANMARTIN' 
+	username='Axoft' #'testuser' 
+	password='Axoft' #'usertest' 	
 	query="""
 	SELECT G.[COD_ARTICU],CAST(G.[PRECIO] AS DECIMAL(20,2)) [PRECIO], CAST(G.[PRECIO]*S.[EQUIVALE_V] AS DECIMAL(20,2)) [PRECIO-U], G.[FECHA_MODI], S.[PERFIL] --[ID_GVA17],[BASE],[FECHA_PRECIOS_PEDIDOS],[FILLER],[NRO_DE_LIS], --[ID_GVA17],[BASE],[FECHA_PRECIOS_PEDIDOS],[FILLER],[NRO_DE_LIS],
 	FROM [{}].[dbo].[GVA17] G
